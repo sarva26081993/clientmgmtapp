@@ -37,9 +37,9 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/main.css"
             ],
-            "scripts": [],
+            "scripts": ["src/bootstrap.bundle.min.js"],
             "server": "src/main.server.ts",
             "outputMode": "server",
             "ssr": {
@@ -102,10 +102,13 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["src/bootstrap.bundle.min.js"]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "dfad5f96-fff9-4e75-a48a-37aba1fbff38"
   }
 }
