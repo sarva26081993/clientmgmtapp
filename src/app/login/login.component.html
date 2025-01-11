@@ -2,23 +2,20 @@
     <div class="col">
     </div>
     <div class="col">
-        <form style="padding-top: 200px;">
-            <div class="card">
-                <h4 class="text-center">🔒Login🔒</h4>
-
-                <div class="form-group" style="padding-top: 30px;">
-                    <label for="exampleInputEmail1">Username</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Enter your Username">
-                </div>
-                <div class="form-group" style="padding-top: 30px;">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1"
-                        placeholder="Please enter Password 🔑">
-                </div>
-                <button type="submit" class="btn btn-info">Login</button>
+        <div class="card">
+            <h4 class="text-center">🔒Login🔒</h4>
+            <div class="form-group" style="padding-top: 30px;">
+                <label for="exampleInputEmail1">Username</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Enter your Username" [(ngModel)]="name">
             </div>
-        </form>
+            <div class="form-group" style="padding-top: 30px;">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1"
+                    placeholder="Please enter Password 🔑" [(ngModel)]="userpassword">
+            </div>
+            <button type="submit" class="btn btn-info" (click)="confirmuser()">Login</button>
+        </div>
     </div>
     <div class="col">
     </div>

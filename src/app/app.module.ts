@@ -5,7 +5,6 @@ import {
   withEventReplay,
 } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PortalComponent } from './portal/portal.component';
 import { LoginComponent } from './login/login.component';
@@ -22,7 +21,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registerClient', component: RegisterComponent },
   { path: 'scheduleMeeting', component: MeetingschedulerComponent },
-  { path: 'welcome', component: WelcomeComponent },
+  { path: 'welcome/:name', component: WelcomeComponent },
 ];
 
 @NgModule({
@@ -37,7 +36,6 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),

@@ -84,13 +84,17 @@ app.post("/scheduleMeeting", (req, res) => {
   });
 });
 
-app.get("/checkClient/:name/:password", (req, res) => {
-  const { name, userpassword } = req.body;
+app.get("/checkClient/:name/:userpassword", (req, res) => {
+  const name = req.params.name;
+  const userpassword = req.params.userpassword;
   const sql = "select * from client where name=? and userpassword=?";
   db.query(sql, [name, userpassword], (err, result) => {
     if (err) {
       console.error(`No such user found`);
-      res.status(500).json({ error: "Unable to locate such user" });
+      res.status(404).json({ error: "Unable to locate such user" });
+    } else {
+      console.log("User retrieved successfully");
+      res.status(200).json(result);
     }
   });
 });

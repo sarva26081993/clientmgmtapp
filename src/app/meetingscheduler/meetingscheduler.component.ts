@@ -46,7 +46,7 @@ export class MeetingschedulerComponent {
         this.meetings = response;
       },
       (error) => {
-        console.error('Error in adding the product', error);
+        console.error('Error in displaying all meetings', error);
       }
     );
   }
