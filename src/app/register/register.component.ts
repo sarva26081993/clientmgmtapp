@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,11 @@ export class RegisterComponent implements OnInit {
   userpassword: string = '';
   message: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
@@ -30,6 +35,7 @@ export class RegisterComponent implements OnInit {
     this.http.post('http://localhost:3000/registerClient', client).subscribe(
       (response: any) => {
         this.message = response.message;
+        this.router.navigate(['/displayClient'], { queryParams: client });
       },
       (error) => {
         console.error('Error in registering client', error);

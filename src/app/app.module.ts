@@ -15,13 +15,15 @@ import { ClientdisplayComponent } from './clientdisplay/clientdisplay.component'
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { DisplayclientComponent } from './displayclient/displayclient.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'registerClient', component: RegisterComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'scheduleMeeting', component: MeetingschedulerComponent },
   { path: 'welcome/:name', component: WelcomeComponent },
+  { path: 'displayClient', component: DisplayclientComponent },
 ];
 
 @NgModule({
@@ -33,6 +35,7 @@ const routes: Routes = [
     MeetingschedulerComponent,
     RegisterComponent,
     ClientdisplayComponent,
+    DisplayclientComponent,
   ],
   imports: [
     BrowserModule,
