@@ -40,22 +40,6 @@ app.get("/getAllMeetings", (req, res) => {
   });
 });
 
-app.get("/getClient/:name", (req, res) => {
-  //search client by name
-  // for multiple params /getClient/:name/:password etc
-  const name = req.params.name;
-  const sql = "select * from client where name=?";
-  db.query(sql, [name], (err, result) => {
-    //for multiple filters keep comma separated eg. [name,password]
-    if (err) {
-      console.error(`Error in fetching client details for ${name}`);
-      res.status(500).json({ error: "Unable to find details" });
-    } else {
-      res.status(200).json(result);
-    }
-  });
-});
-
 app.post("/registerClient", (req, res) => {
   //store client details submitted from register form
   const { name, useremail, address, userpassword } = req.body;
