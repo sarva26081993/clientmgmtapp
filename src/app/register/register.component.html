@@ -2,34 +2,34 @@
     <div class="col">
     </div>
     <div class="col">
-        <form style="padding-top: 50px;">
-            <div class="card">
-                <h4 class="text-center">Client Registration ®️</h4>
-                <div class="mb-3">
-                    <label for="formGroupExampleInput" class="form-label"> &nbsp;&nbsp;Name</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Name">
-                </div>
-                <div class="mb-3">
-                    <label for="inputEmail4" class="form-label">&nbsp;&nbsp;Email ✉️</label>
-                    <input type="email" class="form-control" id="inputEmail4" placeholder="Enter Email">
-                </div>
-                <div class="mb-3">
-                    <label for="formGroupExampleInput" class="form-label">&nbsp;&nbsp;Address 🏠</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput"
-                        placeholder="Enter Address(City and Country)">
-                </div>
-                <label for="exampleInputPassword1">&nbsp;&nbsp;Password 🔑</label>
-                <input type="password" class="form-control" id="exampleInputPassword1"
-                    placeholder="Please enter Password">
-                <br>
-                <label for="exampleInputPassword1">&nbsp;&nbsp;Re-enter Password 🔑🔑</label>
-                <input type="password" class="form-control" id="exampleInputPassword1"
-                    placeholder="Please confirm password ">
-                <br>
-
-                <button type="submit" class="btn btn-primary">Register</button>
+        <div class="card">
+            <h4 class="text-center">Client Registration ®️</h4>
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label"> &nbsp;&nbsp;Name</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Name"
+                    [(ngModel)]="name">
             </div>
-        </form>
+            <div class="mb-3">
+                <label for="inputEmail4" class="form-label">&nbsp;&nbsp;Email ✉️</label>
+                <input type="email" class="form-control" id="inputEmail4" placeholder="Enter Email"
+                    [(ngModel)]="useremail">
+            </div>
+            <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">&nbsp;&nbsp;Address 🏠</label>
+                <input type="text" class="form-control" id="formGroupExampleInput"
+                    placeholder="Enter Address(City and Country)" [(ngModel)]="address">
+            </div>
+            <label for="exampleInputPassword1">&nbsp;&nbsp;Password 🔑</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Please enter Password"
+                [(ngModel)]="userpassword">
+            <br>
+            <label for="exampleInputPassword1">&nbsp;&nbsp;Re-enter Password 🔑🔑</label>
+            <input type="password" class="form-control" id="exampleInputPassword1"
+                placeholder="Please confirm password ">
+            <br>
+
+            <button type="submit" class="btn btn-primary" (click)="registerClient()">Register</button>
+        </div>
 
     </div>
     <div class="col">

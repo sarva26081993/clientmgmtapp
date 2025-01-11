@@ -14,6 +14,16 @@ import { MeetingschedulerComponent } from './meetingscheduler/meetingscheduler.c
 import { RegisterComponent } from './register/register.component';
 import { ClientdisplayComponent } from './clientdisplay/clientdisplay.component';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+
+const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'registerClient', component: RegisterComponent },
+  { path: 'scheduleMeeting', component: MeetingschedulerComponent },
+  { path: 'welcome', component: WelcomeComponent },
+];
 
 @NgModule({
   declarations: [
@@ -25,7 +35,13 @@ import { FormsModule } from '@angular/forms';
     RegisterComponent,
     ClientdisplayComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(routes),
+  ],
   providers: [provideClientHydration(withEventReplay())],
   bootstrap: [AppComponent],
 })

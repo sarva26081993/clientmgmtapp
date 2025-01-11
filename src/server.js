@@ -72,14 +72,25 @@ app.post("/registerClient", (req, res) => {
 
 app.post("/scheduleMeeting", (req, res) => {
   // store meeting details submitted from schedule meeting form
-  const { topic, attendees, stime, etime } = req.body;
+  const { topic, attendeescount, stime, etime } = req.body;
   const sql = "insert into meetings values(?,?,?,?)";
-  db.query(sql, [topic, attendees, stime, etime], (err, result) => {
+  db.query(sql, [topic, attendeescount, stime, etime], (err, result) => {
     if (err) {
       console.error(`Error in storing meeting details`);
       res.status(500).json({ error: "Unable to store meeting details" });
     } else {
       res.status(200).json({ message: "Meeting details saved successfully" });
+    }
+  });
+});
+
+app.get("/checkClient/:name/:password", (req, res) => {
+  const { name, userpassword } = req.body;
+  const sql = "select * from client where name=? and userpassword=?";
+  db.query(sql, [name, userpassword], (err, result) => {
+    if (err) {
+      console.error(`No such user found`);
+      res.status(500).json({ error: "Unable to locate such user" });
     }
   });
 });
