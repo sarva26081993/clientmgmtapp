@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
     this.http.post('http://localhost:3000/registerClient', client).subscribe(
       (response: any) => {
         this.message = response.message;
-        this.router.navigate(['/displayClient'], { queryParams: client });
+        this.router.navigate(['/displayClient'], { state: { client } });
       },
       (error) => {
         console.error('Error in registering client', error);

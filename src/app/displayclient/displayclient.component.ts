@@ -21,10 +21,11 @@ export class DisplayclientComponent {
   ) {}
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe((params) => {
-      this.name = params['name'];
-      this.address = params['address'];
-      this.useremail = params['useremail'];
-    });
+    const state = history.state;
+    const data = state.client;
+
+    this.name = data.name;
+    this.address = data.address;
+    this.useremail = data.useremail;
   }
 }
