@@ -3,6 +3,7 @@
     </div>
     <div class="col">
         <div class="card">
+            <h3 *ngIf="errorFlag" style="color:rgb(235, 18, 18)"> Please provide details correctly</h3>
             <h4 class="text-center">Client Registration ®️</h4>
             <div class="mb-3">
                 <label for="formGroupExampleInput" class="form-label"> &nbsp;&nbsp;Name</label>
@@ -25,7 +26,7 @@
             <br>
             <label for="exampleInputPassword1">&nbsp;&nbsp;Re-enter Password 🔑🔑</label>
             <input type="password" class="form-control" id="exampleInputPassword1"
-                placeholder="Please confirm password ">
+                placeholder="Please confirm password " [(ngModel)]="cnfpassword">
             <br>
 
             <button type="submit" class="btn btn-primary" (click)="registerClient()">Register</button>

@@ -14,7 +14,9 @@ export class RegisterComponent implements OnInit {
   useremail: string = '';
   address: string = '';
   userpassword: string = '';
+  cnfpassword: string = '';
   message: string = '';
+  errorFlag: boolean = false;
 
   constructor(
     private http: HttpClient,
@@ -25,21 +27,30 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   registerClient() {
-    const client = {
-      name: this.name,
-      useremail: this.useremail,
-      address: this.address,
-      userpassword: this.userpassword,
-    };
-
-    this.http.post('http://localhost:3000/registerClient', client).subscribe(
-      (response: any) => {
-        this.message = response.message;
-        this.router.navigate(['/displayClient'], { state: { client } });
-      },
-      (error) => {
-        console.error('Error in registering client', error);
-      }
-    );
+    if (
+      this.name == '' ||
+      this.useremail == '' ||
+      this.address == '' ||
+      this.userpassword == '' ||
+      this.cnfpassword == ''
+    ) {
+      this.errorFlag = true;
+    } else {
+      const client = {
+        name: this.name,
+        useremail: this.useremail,
+        address: this.address,
+        userpassword: this.userpassword,
+      };
+      this.http.post('http://localhost:3000/registerClient', client).subscribe(
+        (response: any) => {
+          this.message = response.message;
+          this.router.navigate(['/displayClient'], { state: { client } });
+        },
+        (error) => {
+          console.error('Error in registering client', error);
+        }
+      );
+    }
   }
 }
