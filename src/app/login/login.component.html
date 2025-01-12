@@ -4,6 +4,7 @@
     <div class="col">
         <div class="card">
             <h4 class="text-center">🔒Login🔒</h4>
+            <h5 *ngIf="errorFlag" style="color: rgb(211, 7, 7);">Please provide correct inputs</h5>
             <div class="form-group" style="padding-top: 30px;">
                 <label for="exampleInputEmail1">Username</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"

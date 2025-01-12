@@ -13,6 +13,7 @@ export class LoginComponent {
   user: any;
   name: String = '';
   userpassword: String = '';
+  errorFlag: boolean = false;
 
   constructor(
     private http: HttpClient,
@@ -23,6 +24,10 @@ export class LoginComponent {
   ngOnInit(): void {}
 
   confirmuser() {
+    if (this.name == '' || this.userpassword == '') {
+      this.errorFlag = true;
+    }
+
     this.http
       .get(
         'http://localhost:3000/checkClient/' +
